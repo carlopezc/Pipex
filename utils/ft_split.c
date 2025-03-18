@@ -6,7 +6,7 @@
 /*   By: carlopez <carlopez@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 15:31:17 by carlopez          #+#    #+#             */
-/*   Updated: 2025/03/12 13:07:08 by carlopez         ###   ########.fr       */
+/*   Updated: 2025/03/17 12:20:43 by carlopez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t	ft_nword(char const *s, char c)
 	return (count);
 }
 
-char	**ft_free_array(char **arr)
+void	ft_free_array(char **arr)
 {
 	size_t	j;
 
@@ -41,7 +41,7 @@ char	**ft_free_array(char **arr)
 	while (arr[j])
 		free(arr[j++]);
 	free(arr);
-	return (NULL);
+	return ;
 }
 
 static char	**ft_fill_array(char **arr, char const *s, char c, size_t len)
@@ -64,7 +64,7 @@ static char	**ft_fill_array(char **arr, char const *s, char c, size_t len)
 				i++;
 			arr[j] = ft_substr(s, start, i - start);
 			if (!arr[j])
-				return (ft_free_array(arr));
+				return (ft_free_array(arr), NULL);
 		}
 		j++;
 	}

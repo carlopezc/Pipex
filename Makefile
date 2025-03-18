@@ -6,16 +6,16 @@
 #    By: carlopez <carlopez@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/12 11:09:32 by carlopez          #+#    #+#              #
-#    Updated: 2025/03/12 13:15:38 by carlopez         ###   ########.fr        #
+#    Updated: 2025/03/17 18:22:06 by carlopez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g
 
 NAME = pipex
 LIB = pipex.h
-SRC = utils/ft_utils.c utils/ft_memcpy.c utils/ft_split.c utils/ft_strdup.c utils/ft_strjoin.c utils/ft_strlen.c utils/ft_substr.c 
+SRC = utils/ft_strncmp.c utils/ft_utils.c utils/ft_memcpy.c utils/ft_split.c utils/ft_strdup.c utils/ft_strjoin.c utils/ft_strlen.c utils/ft_substr.c 
 OBJ = $(SRC:.c=.o)
 MAIN = main/main.c
 PRINTFDIR = printf
