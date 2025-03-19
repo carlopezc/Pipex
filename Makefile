@@ -6,12 +6,12 @@
 #    By: carlopez <carlopez@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/12 11:09:32 by carlopez          #+#    #+#              #
-#    Updated: 2025/03/18 16:22:50 by carlopez         ###   ########.fr        #
+#    Updated: 2025/03/19 19:52:37 by carlopez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
 NAME = pipex
 LIB = pipex.h

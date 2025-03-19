@@ -6,7 +6,7 @@
 /*   By: carlopez <carlopez@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 12:41:51 by carlopez          #+#    #+#             */
-/*   Updated: 2025/03/18 16:18:32 by carlopez         ###   ########.fr       */
+/*   Updated: 2025/03/19 19:39:42 by carlopez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ void	ft_free_struct(t_pipex *pipex)
 	i = 0;
 	if (!pipex)
 		return ;
-	free(pipex->path);
 	while (pipex->args && pipex->args[i])
 		free(pipex->args[i++]);
+	free(pipex->args);
+	free(pipex->path);
 	ft_close_fd(pipex);
 	free(pipex);
 }
@@ -68,11 +69,13 @@ void	ft_dup_fd(t_pipex *pipex, int flag)
 
 int	ft_exec_pid(t_pipex *pipex, char **argv, char **env, int flag)
 {
-	ft_dup_fd(pipex, flag);
 	ft_build_args(&pipex, argv, flag);
-	ft_build_path(&pipex, env);
-	if (!pipex->path || !pipex->args)
+	if (!pipex->args)
 		return (perror("Error building args\n"), 0);
+	ft_build_path(&pipex, env);
+	if (!pipex->path)
+		return (perror("Error building path\n"), 0);
+	ft_dup_fd(pipex, flag);
 	if (execve(pipex->path, pipex->args, env) == -1)
 		return (perror("Error in execve\n"), 0);
 	return (1);
