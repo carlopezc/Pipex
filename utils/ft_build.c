@@ -6,7 +6,7 @@
 /*   By: carlopez <carlopez@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 16:16:47 by carlopez          #+#    #+#             */
-/*   Updated: 2025/03/19 19:52:13 by carlopez         ###   ########.fr       */
+/*   Updated: 2025/03/20 13:25:24 by carlopez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_build_path_extra(t_pipex **pipex, char **path_split)
 		free(initial_path);
 		i++;
 	}
-	return (free(path), free(initial_path), ft_free_array(path_split));
+	return (ft_free_array(path_split));
 }
 
 void	ft_build_path(t_pipex **pipex, char **env)
